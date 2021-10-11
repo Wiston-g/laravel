@@ -18,8 +18,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', Homecontroller::class);
 
-Route::get('administrador', [AdminController::class, 'index']);
+Route::get('administrador', [AdminController::class, 'index'])->name('administrador.index');
 
-Route::get('administrador/create', [AdminController::class, 'create']);
+Route::get('administrador/create', [AdminController::class, 'create'])->name('administrador.create');
 
-Route::get('administrador/{admi}', [AdminController::class, 'show']);
+Route::post('administrador', [AdminController::class,'store'])->name('administrador.store');
+
+Route::get('administrador/{admi}', [AdminController::class, 'show'])->name('administrador.show');
